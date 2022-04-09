@@ -1,0 +1,52 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="studentDetailId" [value]="service.formData.studentDetailId">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="studentFirstName.valid" [class.red-icon]="studentFirstName.invalid && studentFirstName.touched"></i>
+          </div>
+        </div>
+        <input name="studentFirstName" #studentFirstName="ngModel" [(ngModel)]="service.formData.studentFirstName" class="form-control"
+          placeholder="First Name" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="studentLastName.valid" [class.red-icon]="studentLastName.invalid && studentLastName.touched"></i>
+          </div>
+        </div>
+        <input name="studentLastName" #studentLastName="ngModel" [(ngModel)]="service.formData.studentLastName" class="form-control"
+          placeholder="Last Name" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-phone"  [class.green-icon]="mobileNumber.valid" [class.red-icon]="mobileNumber.invalid && mobileNumber.touched"></i>
+          </div>
+        </div>
+        <input name="mobileNumber" #mobileNumber="ngModel" [(ngModel)]="service.formData.mobileNumber" 
+        class="form-control" placeholder="Mobile Number" required maxlength="16" minlength="10">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-7">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-envelope"  [class.green-icon]="email.valid" [class.red-icon]="email.invalid && email.touched"></i>
+            </div>
+          </div>
+          <input name="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control"
+            placeholder="Email" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Submit</button>
+    </div>
+  </form>
